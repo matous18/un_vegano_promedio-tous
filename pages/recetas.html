@@ -22,33 +22,46 @@
         <div class="container-fluid flex-row-reverse">
             <ul class="navbar-nav">
                 <li class="nav-item"><a href="../index.html" class="active">Home</a></li>
-                <li class="nav-item"><a href="../pages/recetas.html">Recetas</a></li>
-                <li class="nav-item"><a href="../pages/recomendaciones.html">Recomendaciones</a></li>
-                <li class="nav-item"><a href="../pages/tips.html">Tips</a></li>
-                <li class="nav-item"><a href="../pages/contacto.html">Contacto</a></li>
-                <form action="d-flex flex-row-reverse">
+                <li class="nav-item"><a href="recetas.html">Recetas</a></li>
+                <li class="nav-item"><a href="recomendaciones.html">Recomendaciones</a></li>
+                <li class="nav-item"><a href="tips.html">Tips</a></li>
+                <li class="nav-item"><a href="contacto.html">Contacto</a></li>
+                <form action="d-flex flex-row-reverse" class="form__search">
                     <input type="text" class="form-control me-2" placeholder="¿Qué estás buscando?">
-                    <button class="btn btn-primary" type="button">Buscar</button>
+                    <button class="btn btn-secondary btn-sm" type="button">Buscar</button>
                 </form>
             </ul>
         </div>
     </nav>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm">
             <h1>Recetas</h1>
+            <p>
+                <h3>
+                    Ingredientes:
+                </h3>
+                <ul type: circle>
+                    <li>Lorem Ipsum</li>
+                    <li>Lorem Ipsum</li>
+                    <li>Lorem Ipsum</li>
+                    <li>Lorem Ipsum</li>
+                    <li>Lorem Ipsum</li>
+                    <li>Lorem Ipsum</li>
+                </ul>
+            </p>
         </div>
         <div class="col-xxl-3">
             <img src="../img/plato.jpg" alt="Logo Vegano Promedio" class="img-fluid mx-auto d-block" id="logo__home">
         </div>
         <div class="row">
-            <p>
+            <p class="recipe__body">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate totam porro voluptates voluptas! Cupiditate tempora veniam, error ipsam fuga, fugit ducimus voluptate non ex qui est laborum dolores asperiores magnam?
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt corrupti, ducimus obcaecati dolorem cumque eius! Necessitatibus minus tenetur error iste, commodi molestias minima eveniet laudantium odio provident, fugiat officiis optio!
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem commodi explicabo, rerum ducimus ipsum exercitationem esse sequi omnis itaque eligendi molestiae fugiat. Cumque dolorum ut dicta. Repellat dolorem commodi provident.
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci, exercitationem. Totam ad nostrum consequatur sint quisquam quis beatae harum sequi error, non dignissimos? Labore eaque sunt unde, exercitationem consequatur tempore?
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum quibusdam doloremque illo recusandae similique quam velit nostrum molestiae, magni error debitis id neque nam libero quidem sequi minus modi reprehenderit!
             </p>
-            <p>
+            <p class="recipe__body">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate totam porro voluptates voluptas! Cupiditate tempora veniam, error ipsam fuga, fugit ducimus voluptate non ex qui est laborum dolores asperiores magnam?
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt corrupti, ducimus obcaecati dolorem cumque eius! Necessitatibus minus tenetur error iste, commodi molestias minima eveniet laudantium odio provident, fugiat officiis optio!
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem commodi explicabo, rerum ducimus ipsum exercitationem esse sequi omnis itaque eligendi molestiae fugiat. Cumque dolorum ut dicta. Repellat dolorem commodi provident.
@@ -56,12 +69,60 @@
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum quibusdam doloremque illo recusandae similique quam velit nostrum molestiae, magni error debitis id neque nam libero quidem sequi minus modi reprehenderit!
             </p>
         </div>
-        <div class="footer__area">
-            <footer class="footer">
-                <span id="footer__text">Final de página</span>
-                <a href="#top">Volver arriba</a>
-            </footer>
-        </div>
+        <footer class="footer">
+            <div><img src="../img/logo-vegan.jpg" alt="Logo"></div>
+            <div>
+                <p>Lorem Ipsum</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div>
+                <p>Lorem Ipsum</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div>
+                <p>Lorem Ipsum</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div>
+                <p>Lorem Ipsum</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="social__media">
+                <div class="container p-4 pb-0">
+                    <section class="mb-4">
+                      <!-- Facebook -->
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-facebook-f"></i
+                      ></a>
+                
+                      <!-- Twitter -->
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-twitter"></i
+                      ></a>
+                
+                      <!-- Google -->
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-google"></i
+                      ></a>
+                
+                      <!-- Instagram -->
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-instagram"></i
+                      ></a>
+                
+                      <!-- Linkedin -->
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-linkedin-in"></i
+                      ></a>
+                
+                      <!-- Github -->
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-github"></i
+                      ></a>
+                    </section>
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>        
 </body>
