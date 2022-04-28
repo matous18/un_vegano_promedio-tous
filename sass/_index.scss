@@ -1,0 +1,243 @@
+$PrimaryColor: #006535;
+$SecondaryColor: #00AA59;
+$ThirdColor: white;
+$FourthColor: black;
+$Gradient: rgba(123, 255, 0, 0.904);
+
+@mixin basic {
+    color: $SecondaryColor;
+    background: none;
+}
+
+/* Body */
+
+@keyframes shake {
+    0% {transform: rotate(20deg);}
+    50% {transform: rotate(-20deg);}
+    80% {transform: rotate(20deg);}
+    100% {transform: rotate(0deg);}
+}
+
+.body__container {
+    background-image: linear-gradient(to bottom, $PrimaryColor, $ThirdColor,$PrimaryColor);
+    width: 700 px;
+    position: relative;
+    padding-bottom: 15em;
+    min-height: 100vh;
+
+    /* Navbar */
+
+    .navbar {
+        width: 100%;
+        height: 85px;
+        background-image: linear-gradient(to top, $SecondaryColor, $PrimaryColor);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 75px;
+        position: fixed;
+
+        .main__title{
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        #check1 {
+            display: none;
+        }
+
+        .form-check-label {
+
+            i {
+                color: $ThirdColor;
+                font-size: 35px;
+                display: none;
+            }
+            
+        }
+
+        .container-fluid {
+            display: flex;
+            font-size: 50%;
+
+            ul{
+                display: flex;
+
+                li {
+                    list-style: none;
+                    padding: 0px 8px;
+
+                    a {
+                        color: $ThirdColor;
+                        text-decoration: none;
+                        padding: 8px 12px;
+                        border-radius: 5px;
+                        font-weight: 500;
+                        font-size: 17px;
+
+                        &:hover {
+                            background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
+                            color: $PrimaryColor;
+                        }
+                    }
+
+                    .active  {
+                        background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
+                        color: $PrimaryColor;
+                    }
+                }
+
+                .form__search {
+                    color:$FourthColor;
+
+                    .btn {
+                        color: $FourthColor;
+                    }
+                }
+            }
+
+            .form__search {
+                display: flex;
+                flex-direction: row;
+                padding-right: 0px;
+            }
+        }
+    }
+
+    .row {
+        display: flex;
+        padding: 100px 80px;
+        justify-content: space-evenly;
+
+        #logo__home {
+            width: auto;
+            height: auto;
+            border-radius: 50% 100px;
+            border-color:$PrimaryColor;
+            border: 10px solid;
+            animation-name: shake;
+            animation-duration: 1s;
+        }
+        
+        /* Contenido */
+
+        .img-fluid {
+            background-color: $PrimaryColor;
+            display: flex;
+            position: relative;
+            text-align: center;
+            color: $ThirdColor;
+            border: 5px solid;
+            max-width: 100%;
+            animation-name: shake;
+            animation-duration: 1s;
+        }
+
+        img {
+            &:hover {
+                transform: scale(0.95);
+                opacity: 0.5;
+
+            }
+        }
+
+        .overlay-text {
+            padding: 40x;
+            margin: 40px;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            background-image: linear-gradient(to left, $Gradient, $SecondaryColor, $Gradient);
+            transform: scale(2);
+        }
+
+        /* footer */
+
+        .footer {
+            background-image: linear-gradient(to top, $PrimaryColor,$SecondaryColor);
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-template-rows: auto auto;
+            justify-content: center;
+            padding: 50px;
+            margin: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100;
+            grid-template-areas: ". . . . ."
+            "social social social social social";
+
+            img {
+                display: flex;
+                justify-content: center;
+                width: 30%;
+                border-radius: 50%;
+                margin-left: 5em;
+            }
+
+            .social__media {
+                grid-area: social;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-left: 37%;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .navbar {
+        position: fixed;
+
+        #check1 {
+            &:checked {
+                left: 0%;
+                content: "\f00d";
+            }
+        }
+
+        .form-check-label {
+            i {
+                display: block;
+
+                &::before{
+                    content: "\f00d;";
+                }
+            }
+        }
+
+        ul {
+            position: fixed;
+            top: 85px;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: $PrimaryColor;
+            display: block;
+            text-align: center;
+
+            li {
+                margin: 45px 0px;
+
+                a {
+                    font-size: 20px;
+                    display: block;
+
+                    &:hover {
+                        @include basic()
+                    }
+
+                    .active {
+                        @include basic()
+                    } 
+                }
+            }
+
+            &:checked {
+                left: 0%;
+            }
+        }
+    }
+}
