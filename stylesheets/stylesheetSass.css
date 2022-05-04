@@ -119,7 +119,8 @@
       position: absolute;
       bottom: 0;
       width: 100;
-      grid-template-areas: ". . . . ." "social social social social social"; }
+      grid-template-areas: ". . . . ."
+ "social social social social social"; }
       .body__container .row .footer img {
         display: flex;
         justify-content: center;
