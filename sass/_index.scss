@@ -38,23 +38,22 @@ $Gradient: rgba(123, 255, 0, 0.904);
         position: fixed;
 
         .main__title{
-            font-size: 40px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+
+            img {
+                border-radius: 80%;
+                width: 80px;
+            }
         }
 
-        #check1 {
+        .checkbtn {
+            color: $ThirdColor;
+            font-size: 25px;
+            float: right;
             display: none;
         }
 
-        .form-check-label {
-
-            i {
-                color: $ThirdColor;
-                font-size: 35px;
-                display: none;
-            }
-            
+        #check {
+            display: none;
         }
 
         .container-fluid {
@@ -113,7 +112,7 @@ $Gradient: rgba(123, 255, 0, 0.904);
         #logo__home {
             width: auto;
             height: auto;
-            border-radius: 50% 100px;
+            border-radius: 50%;
             border-color:$PrimaryColor;
             border: 10px solid;
             animation-name: shake;
@@ -138,7 +137,6 @@ $Gradient: rgba(123, 255, 0, 0.904);
             &:hover {
                 transform: scale(0.95);
                 opacity: 0.5;
-
             }
         }
 
@@ -148,8 +146,10 @@ $Gradient: rgba(123, 255, 0, 0.904);
             display: flex;
             align-content: center;
             justify-content: center;
-            background-image: linear-gradient(to left, $Gradient, $SecondaryColor, $Gradient);
-            transform: scale(2);
+            &:hover {
+                background-image: linear-gradient(to left, $Gradient, $SecondaryColor, $Gradient);
+                transform: scale(2);
+            }
         }
 
         /* footer */
@@ -160,6 +160,7 @@ $Gradient: rgba(123, 255, 0, 0.904);
             grid-template-columns: auto auto auto auto auto;
             grid-template-rows: auto auto;
             justify-content: center;
+            column-gap: 20px;
             padding: 50px;
             margin: 0;
             position: absolute;
@@ -187,56 +188,30 @@ $Gradient: rgba(123, 255, 0, 0.904);
     }
 }
 
-@media all and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .navbar {
-        position: fixed;
+        padding: 0px 50px;
 
-        #check1 {
-            &:checked {
-                left: 0%;
-                content: "\f00d";
-            }
-        }
-
-        .form-check-label {
-            i {
-                display: block;
-
-                &::before{
-                    content: "\f00d;";
-                }
-            }
+        .checkbtn {
+            display: block;
+            background-color: $ThirdColor;           
         }
 
         ul {
-            position: fixed;
-            top: 85px;
-            left: -100%;
+            display: flex;
             width: 100%;
             height: 100vh;
-            background-color: $PrimaryColor;
-            display: block;
+            background-color: $SecondaryColor;
+            position: fixed;
+            top: 75px;
+            left: 0;
             text-align: center;
+            flex-direction: column;
 
             li {
-                margin: 45px 0px;
-
-                a {
-                    font-size: 20px;
-                    display: block;
-
-                    &:hover {
-                        @include basic()
-                    }
-
-                    .active {
-                        @include basic()
-                    } 
-                }
-            }
-
-            &:checked {
-                left: 0%;
+                display: block;
+                margin: 60px 0px;
+                line-height: 20px; 
             }
         }
     }

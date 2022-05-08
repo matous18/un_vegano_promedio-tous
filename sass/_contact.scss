@@ -1,15 +1,14 @@
-$color1: #00AA59;
-$color2: rgba(123, 255, 0, 0.90);
+$primary: #00AA59;
+$secondary: rgba(123, 255, 0, 0.90);
 
-$styles: (
-    align1: center,
-    align2: left,
-    sfont: large,
-);
+/* contacto */
 
-/* Recetas */
-
-.body__container {
+.contact__body {
+    background-image: linear-gradient(to left, $primary, $secondary, $primary);
+    position: relative;
+    padding-bottom: 15em;
+    min-height: 100vh;
+    display: grid;
 
      /* Navbar */
 
@@ -103,15 +102,39 @@ $styles: (
     
     
     }
-    
-    .row {
-        .recipe__body {
-            background-image: linear-gradient(to left, $color1, $color2, $color1);
-            
-            &:hover {
-                width: 80%;
-            }
+
+    grid-template: {
+        columns: auto auto auto;
+        rows: auto auto;
+        areas: "title title title"
+        "img form form";
+    }
+
+    .contact__title {
+        grid-area: title;
+        padding-top: 8em;
+        text-align: center;
+        padding-bottom: 1em;
+    }
+
+    .contact__img {
+        
+        img {
+        grid-area: image;
+        width: 20%;
+        margin-left: 30%;
+        border-radius: 10%;
+        margin-right: 0px;
+        padding-right: 0px;
         }
+    }
+
+    .contact__form {
+        grid-area: form;
+        margin-left: 0px;
+        padding: 200px;
+        padding-left: 0em;
+        padding-top: 0em;
     }
 
     /* footer */
@@ -147,19 +170,5 @@ $styles: (
             margin-left: 37%;
         }
     }
+        
 }
-
-@media all and (max-width: 425px) {
-
-    /* Recetas */
-    .row .recipe__body {
-        width: 400px;
-        font-size: 12px;
-        padding-left: 0px;
-        padding-right: 0px;
-        margin-left: 0px;
-        margin-right: 0px;
-
-    }
-}
-
