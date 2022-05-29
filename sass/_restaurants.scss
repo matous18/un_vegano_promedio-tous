@@ -1,10 +1,12 @@
 $primary: rgba(123, 255, 0, 0.90);
 $secondary: #00AA59;
+$maincolor: #006535;
+$textcolor: #545454;
 
 /* Restaurantes */
 
 .recomendations__body {
-    background-image: radial-gradient($primary, $secondary);;
+    background-image: url('../img/background-all.png');
     position: relative;
     padding-bottom: 15em;
     min-height: 100vh;
@@ -12,82 +14,54 @@ $secondary: #00AA59;
      /* Navbar */
 
      .navbar {
+        position: fixed;
+        top: 0;
         width: 100%;
         height: 85px;
         background-image: linear-gradient(to top, $SecondaryColor, $PrimaryColor);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 75px;
-        position: fixed;
+        z-index: 9999;
 
         .main__title{
-
+            padding-right: 20px;
             img {
                 border-radius: 80%;
                 width: 80px;
             }
         }
 
-        .checkbtn {
-            color: $ThirdColor;
-            font-size: 25px;
+        .navbar-nav{
             float: right;
-            display: none;
-        }
+            margin-right: 20px;
 
-        #check {
-            display: none;
-        }
+            .nav-item {
 
-        .container-fluid {
-            display: flex;
-            font-size: 50%;
+                .nav-link {
+                    color: $ThirdColor;
+                    font-size: 12px;
+                    padding: 7px 13px;
+                    border-radius: 3px;
+                    text-transform: uppercase;
 
-            ul{
-                display: flex;
-
-                li {
-                    list-style: none;
-                    padding: 0px 8px;
-
-                    a {
-                        color: $ThirdColor;
-                        text-decoration: none;
-                        padding: 8px 12px;
-                        border-radius: 5px;
-                        font-weight: 500;
-                        font-size: 17px;
-
-                        &:hover {
-                            background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
-                            color: $PrimaryColor;
-                        }
-                    }
-
-                    .active  {
+                    &:hover {
                         background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
                         color: $PrimaryColor;
                     }
                 }
 
-                .form__search {
-                    color:$FourthColor;
-
-                    .btn {
-                        color: $FourthColor;
-                    }
+                .active  {
+                    background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
+                    color: $PrimaryColor;
                 }
             }
 
-            .form__search {
-                display: flex;
-                flex-direction: row;
-                padding-right: 0px;
+            .d-flex {
+                button {
+                    color: $ThirdColor;
+                }
             }
         }
+    } 
 
-     }
     .col-sm {
         text-align: map-get($map: $styles, $key: align1 );
     
@@ -104,11 +78,15 @@ $secondary: #00AA59;
 
     .recomendation__container {
         display: grid;
+        position: relative;
+        padding-bottom: 15rem;
         grid-template: {
             columns: auto auto;
             rows: auto auto auto;
             areas: "title title"
+            ". parag"
             "img parag"
+            ". parag"
             "map map";
         }
 
@@ -117,10 +95,19 @@ $secondary: #00AA59;
             padding-top: 8em;
             text-align: center;
             padding-bottom: 1em;
+            border-bottom: $maincolor 2px solid;
+            margin: 0px 20px;
+            margin-bottom: 10px;
+            
+            h1 {
+                color: $secondary;
+            }
         }
 
         .recomendation__img {
             grid-area: img;
+            justify-items: center;
+
 
             img {
                 position: relative;
@@ -132,8 +119,11 @@ $secondary: #00AA59;
 
         .recomendation__parag {
             grid-area: parag;
-            padding: 40px;
+            padding: 0px 40px 40px 40px;
             text-align: justify;
+            p {
+                color: $textcolor;
+            }
         }
 
         .recomendation__map {
@@ -177,6 +167,69 @@ $secondary: #00AA59;
             flex-direction: row;
             justify-content: center;
             margin-left: 37%;
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .recomendations__body {
+        .recomendation__container {
+            display: grid;
+            grid-template: {
+                columns: auto auto auto;
+                rows: auto auto auto auto auto;
+            }
+
+            grid-template-areas: ". title ."
+            ". img ."
+            ". parag ."
+            ". parag ."
+            ". map .";
+
+            .recomendation__title {
+                grid-area: title;
+            }
+    
+            .recomendation__img {
+                grid-area: img;
+                padding-bottom: 20px;
+            }
+    
+            .recomendation__parag {
+                grid-area: parag;
+            }
+    
+            .recomendation__map {
+                grid-area: map;
+            }    
+        }
+    }
+}
+
+@media all and (max-width: 425px) {
+    .recomendations__body {
+        .recomendation__container {
+            width: 100vw;
+            margin-bottom: 50vh;
+            .recomendation__img {
+                display: relative;
+                img {
+                    margin-left: 40px;
+                }
+            }
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+@media all and (max-width: 320px) {
+    .recomendations__body {
+        .recomendation__container {
+            margin-bottom: 80vh;
         }
     }
 }

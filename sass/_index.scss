@@ -4,6 +4,8 @@ $ThirdColor: white;
 $FourthColor: black;
 $Gradient: rgba(123, 255, 0, 0.904);
 
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+
 @mixin basic {
     color: $SecondaryColor;
     background: none;
@@ -19,7 +21,7 @@ $Gradient: rgba(123, 255, 0, 0.904);
 }
 
 .body__container {
-    background-image: linear-gradient(to bottom, $PrimaryColor, $ThirdColor,$PrimaryColor);
+    background-image: url('../img/background-all.png');
     width: 700 px;
     position: relative;
     padding-bottom: 15em;
@@ -28,98 +30,78 @@ $Gradient: rgba(123, 255, 0, 0.904);
     /* Navbar */
 
     .navbar {
+        position: fixed;
+        top: 0;
         width: 100%;
         height: 85px;
         background-image: linear-gradient(to top, $SecondaryColor, $PrimaryColor);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 75px;
-        position: fixed;
+        z-index: 9999;
 
         .main__title{
-
+            padding-right: 20px;
             img {
                 border-radius: 80%;
                 width: 80px;
             }
         }
 
-        .checkbtn {
-            color: $ThirdColor;
-            font-size: 25px;
+        .navbar-nav{
             float: right;
-            display: none;
-        }
+            margin-right: 20px;
 
-        #check {
-            display: none;
-        }
+            .nav-item {
 
-        .container-fluid {
-            display: flex;
-            font-size: 50%;
+                .nav-link {
+                    color: $ThirdColor;
+                    font-size: 12px;
+                    padding: 7px 13px;
+                    border-radius: 3px;
+                    text-transform: uppercase;
 
-            ul{
-                display: flex;
-
-                li {
-                    list-style: none;
-                    padding: 0px 8px;
-
-                    a {
-                        color: $ThirdColor;
-                        text-decoration: none;
-                        padding: 8px 12px;
-                        border-radius: 5px;
-                        font-weight: 500;
-                        font-size: 17px;
-
-                        &:hover {
-                            background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
-                            color: $PrimaryColor;
-                        }
-                    }
-
-                    .active  {
+                    &:hover {
                         background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
                         color: $PrimaryColor;
                     }
                 }
 
-                .form__search {
-                    color:$FourthColor;
-
-                    .btn {
-                        color: $FourthColor;
-                    }
+                .active  {
+                    background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
+                    color: $PrimaryColor;
                 }
             }
 
-            .form__search {
-                display: flex;
-                flex-direction: row;
-                padding-right: 0px;
+            .d-flex {
+                button {
+                    color: $ThirdColor;
+                }
             }
         }
-    }
+    } 
 
     .row {
         display: flex;
         padding: 100px 80px;
         justify-content: space-evenly;
+        border-bottom: $PrimaryColor 2px solid;
+        margin: 0px 20px;
 
         #logo__home {
             width: auto;
             height: auto;
-            border-radius: 50%;
-            border-color:$PrimaryColor;
-            border: 10px solid;
             animation-name: shake;
             animation-duration: 1s;
         }
         
         /* Contenido */
+
+        .middle__text {
+            p {
+                text-align: center;
+                padding: 0px 80px 100px 80px;
+                font-size: 80px;
+                color: $PrimaryColor;
+            }
+        }
 
         .img-fluid {
             background-color: $PrimaryColor;
@@ -127,7 +109,7 @@ $Gradient: rgba(123, 255, 0, 0.904);
             position: relative;
             text-align: center;
             color: $ThirdColor;
-            border: 5px solid;
+            border: $PrimaryColor 5px solid;
             max-width: 100%;
             animation-name: shake;
             animation-duration: 1s;
@@ -146,8 +128,11 @@ $Gradient: rgba(123, 255, 0, 0.904);
             display: flex;
             align-content: center;
             justify-content: center;
+            color: $PrimaryColor;
+            font-size: 40px;
             &:hover {
                 background-image: linear-gradient(to left, $Gradient, $SecondaryColor, $Gradient);
+                color: $ThirdColor;
                 transform: scale(2);
             }
         }
@@ -188,30 +173,77 @@ $Gradient: rgba(123, 255, 0, 0.904);
     }
 }
 
-@media screen and (max-width: 1024px) {
-    .navbar {
-        padding: 0px 50px;
-
-        .checkbtn {
-            display: block;
-            background-color: $ThirdColor;           
+@media all and (max-width:768px) {
+    .row {
+        .middle__text {
+            p {
+                padding: 40px 0px;
+            }
         }
+    }
 
-        ul {
-            display: flex;
+    .col-sm-4 {
+        .maintxt {
+            .overlay-text {
+                width: 100%;
+                padding: 10px;
+                margin: 40px 0px;
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 425px) {
+    .body__container {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 10vh;
+
+        .row {
+            padding: 100px 10px 10px 40px;
+            .col-xxl-3 {
+                .img-fluid {
+                    width: 100%;
+                }
+            }
+            
+            .middle__text {
+                display: inline;
+                padding: 0px 0px 40px 0px;
+                margin-bottom: 10vh;
+                width: 100%;
+                height: 1vh;
+                p {
+                    font-size: 25px;
+                }
+            }
+
+            .footer {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+                margin: 10px 0px;
+            }
+        }
+    }
+}
+
+@media all and (max-width:320px) {
+    .body__container {
+        display: flex;
+        .middle__text {
+            display: inline;
+            padding: 0px 0px 10px 0px;
+            margin-bottom: 40vh;
             width: 100%;
-            height: 100vh;
-            background-color: $SecondaryColor;
-            position: fixed;
-            top: 75px;
-            left: 0;
-            text-align: center;
-            flex-direction: column;
-
-            li {
-                display: block;
-                margin: 60px 0px;
-                line-height: 20px; 
+            height: auto;
+            p {
+                font-size: 25px;
             }
         }
     }

@@ -1,115 +1,118 @@
 $color1: #00AA59;
 $color2: rgba(123, 255, 0, 0.90);
+$color3: #545454;
 
 $styles: (
     align1: center,
     align2: left,
     sfont: large,
+    fontcolor: #00AA59,
 );
 
 /* Recetas */
 
-.body__container {
+.body__recipe {
+    background-image: url('../img/background-all.png');
+    width: 700 px;
+    position: relative;
+    padding-bottom: 15em;
+    min-height: 100vh;
 
      /* Navbar */
 
      .navbar {
+        position: fixed;
+        top: 0;
         width: 100%;
         height: 85px;
         background-image: linear-gradient(to top, $SecondaryColor, $PrimaryColor);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 75px;
-        position: fixed;
+        z-index: 9999;
 
         .main__title{
-
+            padding-right: 20px;
             img {
                 border-radius: 80%;
                 width: 80px;
             }
         }
 
-        .checkbtn {
-            color: $ThirdColor;
-            font-size: 25px;
+        .navbar-nav{
             float: right;
-            display: none;
-        }
+            margin-right: 20px;
 
-        #check {
-            display: none;
-        }
+            .nav-item {
 
-        .container-fluid {
-            display: flex;
-            font-size: 50%;
+                .nav-link {
+                    color: $ThirdColor;
+                    font-size: 12px;
+                    padding: 7px 13px;
+                    border-radius: 3px;
+                    text-transform: uppercase;
 
-            ul{
-                display: flex;
-
-                li {
-                    list-style: none;
-                    padding: 0px 8px;
-
-                    a {
-                        color: $ThirdColor;
-                        text-decoration: none;
-                        padding: 8px 12px;
-                        border-radius: 5px;
-                        font-weight: 500;
-                        font-size: 17px;
-
-                        &:hover {
-                            background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
-                            color: $PrimaryColor;
-                        }
-                    }
-
-                    .active  {
+                    &:hover {
                         background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
                         color: $PrimaryColor;
                     }
                 }
 
-                .form__search {
-                    color:$FourthColor;
-
-                    .btn {
-                        color: $FourthColor;
-                    }
+                .active  {
+                    background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
+                    color: $PrimaryColor;
                 }
             }
 
-            .form__search {
-                display: flex;
-                flex-direction: row;
-                padding-right: 0px;
+            .d-flex {
+                button {
+                    color: $ThirdColor;
+                }
             }
         }
+    } 
 
-     }
     .col-sm {
-        text-align: map-get($map: $styles, $key: align1 );
-    
-        h3 {
-            text-align: map-get($map: $styles, $key: align2);
+        text-align: map-get($map: $styles, $key: align1);
+        padding-top: 100px;
+        h1 {
+            color: $color1;
         }
-    
-        ul {
-            @extend h3;
+
+        .col-xxl-3 {
+            padding-bottom: 20px;
         }
-    
-    
+
+        .ingredient {
+            border-top: $PrimaryColor 1px solid;
+            border-bottom: $PrimaryColor 1px solid;
+            padding: 60px 80px 20px 80px;
+            h3 {
+                text-align: map-get($map: $styles, $key: align2);    
+                color: $color1;
+            }
+        
+            ul {
+                @extend h3;
+                list-style: none;
+                li {
+                    color: $color3;
+                    font-family: 'Days One', sans-serif;
+                }
+            }          
+        }  
     }
     
     .row {
+        padding: 100px 20px 100px 80px;
+
+        h3 {
+            color: $color1;
+        }
         .recipe__body {
-            background-image: linear-gradient(to left, $color1, $color2, $color1);
-            
+            text-align: left;
+            color: $color3;
             &:hover {
                 width: 80%;
+                background-image: linear-gradient(to left, $color1, $color2, $color1);
+                color: $ThirdColor;
             }
         }
     }
@@ -127,9 +130,11 @@ $styles: (
         margin: 0;
         position: absolute;
         bottom: 0;
-        width: 100;
+        width: 100%;
         grid-template-areas: ". . . . ."
         "social social social social social";
+        bottom: 0;
+        left: 0;
 
         img {
             display: flex;
@@ -150,16 +155,31 @@ $styles: (
 }
 
 @media all and (max-width: 425px) {
+    .body__recipe {
+        .row {
+            padding: 20px 10px 0px 20px;
+            margin-bottom: 50vh;
 
-    /* Recetas */
-    .row .recipe__body {
-        width: 400px;
-        font-size: 12px;
-        padding-left: 0px;
-        padding-right: 0px;
-        margin-left: 0px;
-        margin-right: 0px;
+            p {
+                padding: 0px;
+                text-align: justify;
+            }
+        }
 
+        .footer {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
 
+@media all and (max-width: 320px) {
+    .body__recipe {
+        .row {
+            margin-bottom: 70vh;
+        }
+        .footer {
+            width: 100vw;
+        }
+    }
+}

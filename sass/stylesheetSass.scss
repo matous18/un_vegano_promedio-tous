@@ -14,31 +14,3 @@
 @import "restaurants.scss";
 @import "tips.scss";
 @import "contact.scss";
-
-/* Mobile View */
-
-@media all and (max-width: 425px) {
-
-    /* index */
-    .body__container {
-        position: relative;
-        min-height: 100vh;
-        padding-bottom: 50em;
-    }
-    .footer {
-        display: flex;
-        flex-direction: column;
-        bottom: 0;
-    }
-
-    /* Recetas */
-    .row .recipe__body {
-        width: 400px;
-        font-size: 12px;
-        padding-left: 0px;
-        padding-right: 0px;
-        margin-left: 0px;
-        margin-right: 0px;
-
-    }
-}

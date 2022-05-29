@@ -1,96 +1,69 @@
 $primary: #00AA59;
 $secondary: rgba(123, 255, 0, 0.90);
+$maincolor: #006535;
+$textcolor: #545454;
 
 /* Tips */
 
 .tips__body {
-    background-image: linear-gradient(to left, $primary, $secondary, $primary);
+    background-image: url('../img/background-all.png');
     position: relative;
-    padding-bottom: 15em;
+    padding-bottom: 25em;
     min-height: 100vh;
-    grid-template-areas: "title"
-    "video"
-    "parag";
+    grid-template-areas: ". title ."
+    ". parag ."
+    ". video .";
 
      /* Navbar */
 
      .navbar {
+        position: fixed;
+        top: 0;
         width: 100%;
         height: 85px;
         background-image: linear-gradient(to top, $SecondaryColor, $PrimaryColor);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 75px;
-        position: fixed;
+        z-index: 9999;
 
         .main__title{
-
+            padding-right: 20px;
             img {
                 border-radius: 80%;
                 width: 80px;
             }
         }
 
-        .checkbtn {
-            color: $ThirdColor;
-            font-size: 25px;
+        .navbar-nav{
             float: right;
-            display: none;
-        }
+            margin-right: 20px;
 
-        #check {
-            display: none;
-        }
+            .nav-item {
 
-        .container-fluid {
-            display: flex;
-            font-size: 50%;
+                .nav-link {
+                    color: $ThirdColor;
+                    font-size: 12px;
+                    padding: 7px 13px;
+                    border-radius: 3px;
+                    text-transform: uppercase;
 
-            ul{
-                display: flex;
-
-                li {
-                    list-style: none;
-                    padding: 0px 8px;
-
-                    a {
-                        color: $ThirdColor;
-                        text-decoration: none;
-                        padding: 8px 12px;
-                        border-radius: 5px;
-                        font-weight: 500;
-                        font-size: 17px;
-
-                        &:hover {
-                            background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
-                            color: $PrimaryColor;
-                        }
-                    }
-
-                    .active  {
+                    &:hover {
                         background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
                         color: $PrimaryColor;
                     }
                 }
 
-                .form__search {
-                    color:$FourthColor;
-
-                    .btn {
-                        color: $FourthColor;
-                    }
+                .active  {
+                    background-image: linear-gradient(to left, $SecondaryColor, $Gradient);
+                    color: $PrimaryColor;
                 }
             }
 
-            .form__search {
-                display: flex;
-                flex-direction: row;
-                padding-right: 0px;
+            .d-flex {
+                button {
+                    color: $ThirdColor;
+                }
             }
         }
-
-     }
+    } 
 
     .col-sm {
         text-align: map-get($map: $styles, $key: align1 );
@@ -111,17 +84,27 @@ $secondary: rgba(123, 255, 0, 0.90);
         padding-top: 8em;
         text-align: center;
         padding-bottom: 1em;
-    }
+        border-bottom: $maincolor 2px solid;
+        margin: 0px 20px;
 
-    .tips__video {
-        grid-area: video;
-        margin-left: 35%;
+        h1 {
+            color: $maincolor;
+        }
     }
 
     .tips__parag {
         grid-area: parag;
-        padding: 400px;
-        padding-top: 10px;
+        padding: 10px 340.5px 20px 340.5px;
+        text-align: justify;
+        p {
+            color: $textcolor;
+        }
+    }
+
+    .tips__video {
+        grid-area: video;
+        margin-left: 28%;
+        justify-items: center;
     }
 
     /* footer */
@@ -155,6 +138,43 @@ $secondary: rgba(123, 255, 0, 0.90);
             flex-direction: row;
             justify-content: center;
             margin-left: 37%;
+        }
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .tips__body {
+        .tips__parag {
+            padding: 10px;
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .tips__body {
+        .tips__parag {
+            padding: 20px;
+        }
+        .tips__video {
+            padding: 40px;
+            margin: 0px 0px 0px 80px;
+        }
+    }
+}
+
+@media all and (max-width: 425px) {
+    .tips__body {
+        width: 100vw;
+        .tips__parag {
+            padding: 20px;
+        }
+        .tips__video {
+            padding: 40px 40px 40px 20px;
+            margin: 0px;
+            iframe {
+                width: 385px;
+                height: 192px;
+            }
         }
     }
 }
